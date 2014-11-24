@@ -14,13 +14,29 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="nz.ac.waikato.fcms.catchacrap.MainActivity"
+            android:name="nz.ac.waikato.fcms.catchacrap.RegisterActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name="nz.ac.waikato.fcms.catchacrap.MainActivity"
+            android:label="@string/title_activity_main" >
+        </activity>
+        <activity
+            android:name="nz.ac.waikato.fcms.catchacrap.InfoActivity"
+            android:label="@string/title_activity_info" >
+        </activity>
+        <activity
+            android:name="nz.ac.waikato.fcms.catchacrap.UserActivity"
+            android:label="@string/title_activity_user" >
+        </activity>
+        <activity
+            android:name="nz.ac.waikato.fcms.catchacrap.ReportActivity"
+            android:label="@string/title_activity_report" >
         </activity>
     </application>
 

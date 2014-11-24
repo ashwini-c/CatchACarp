@@ -2,26 +2,41 @@ package nz.ac.waikato.fcms.catchacrap;
 
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
+import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.os.Build;
+import android.widget.EditText;
 
-public class MainActivity extends Activity {
+public class RegisterActivity extends Activity {
 
-	Button report,btn,user,info;
+	Button register;
+	EditText et_name,et_email;
+	String name,email;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
-		report = (Button) findViewById(R.id.button1);
-		btn = (Button) findViewById(R.id.button2);
-		user = (Button) findViewById(R.id.button3);
-		info = (Button) findViewById(R.id.button4);
+		setContentView(R.layout.register_activity);	
+		register = (Button) findViewById(R.id.button1);
+		et_email = (EditText)findViewById(R.id.emailInput);
+		et_name = (EditText)findViewById(R.id.userNameInput);
+		register.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View arg0) {
+				name = et_name.getEditableText().toString();
+				email = et_email.getEditableText().toString();
+				Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+				intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+				intent.setFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
+				startActivity(intent);
+
+			}
+		});
 	}
 
 	@Override
@@ -43,6 +58,7 @@ public class MainActivity extends Activity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
+
 
 
 }
