@@ -48,7 +48,8 @@
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/button3"
         android:layout_alignBottom="@+id/button3"
-        android:layout_toRightOf="@+id/imageView1"
+        android:layout_marginLeft="21dp"
+        android:layout_toRightOf="@+id/button3"
         android:text="Info" />
 
 </RelativeLayout>

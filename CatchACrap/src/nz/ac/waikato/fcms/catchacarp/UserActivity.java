@@ -1,5 +1,6 @@
-package nz.ac.waikato.fcms.catchacrap;
+package nz.ac.waikato.fcms.catchacarp;
 
+import nz.ac.waikato.fcms.catchacarp.R;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;

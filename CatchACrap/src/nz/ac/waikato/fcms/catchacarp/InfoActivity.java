@@ -1,15 +1,16 @@
-package nz.ac.waikato.fcms.catchacrap;
+package nz.ac.waikato.fcms.catchacarp;
 
+import nz.ac.waikato.fcms.catchacarp.R;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class ReportActivity extends Activity {
+public class InfoActivity extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_report);
+		setContentView(R.layout.activity_info);
 	}
 }
