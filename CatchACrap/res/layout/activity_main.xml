@@ -6,50 +6,65 @@
     android:selectAllOnFocus="true"
     tools:context=".MainActivity" >
 
-    <ImageView
-        android:id="@+id/imageView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:src="@drawable/ic_launcher" />
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="center" >
 
-    <Button
-        android:id="@+id/button1"
-        style="@style/ButtonText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/imageView1"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="41dp"
-        android:text="Report" />
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/heading" />
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/button1"
-        android:layout_marginTop="23dp"
-        android:layout_toLeftOf="@+id/button1"
-        android:text="Button" />
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imageView1"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="41dp"
+            android:background="@drawable/report" />
 
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/button2"
-        android:layout_alignBottom="@+id/button2"
-        android:layout_alignLeft="@+id/button1"
-        android:text="User Info" />
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/imageView1"
+            android:layout_below="@+id/button1"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/achieve" />
 
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="wrap_content"
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@+id/button1"
+            android:layout_below="@+id/button1"
+            android:layout_marginTop="26dp"
+            android:background="@drawable/info" />
+
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/button3"
+            android:layout_alignBottom="@+id/button3"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/achieve" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/button3"
-        android:layout_alignBottom="@+id/button3"
-        android:layout_marginLeft="21dp"
-        android:layout_toRightOf="@+id/button3"
-        android:text="Info" />
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:background="@color/myButton"
+        android:paddingLeft="10dp"
+        android:text="@string/uow"
+        android:textColor="@color/myText"
+        android:textStyle="bold" />
 
 </RelativeLayout>

@@ -2,12 +2,18 @@ package nz.ac.waikato.fcms.catchacarp;
 
 import nz.ac.waikato.fcms.catchacarp.R;
 import android.app.Activity;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import java.io.File;
 import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 import java.util.TimeZone;
 
 import android.app.Activity;
@@ -18,6 +24,7 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.provider.Settings;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -48,6 +55,12 @@ public class ReportActivity extends Activity implements LocationListener{
 	Marker curr ;
 	private ProgressBar spinner;
 	Button btn;
+	// Activity request codes
+	private static final int CAMERA_CAPTURE_IMAGE_REQUEST_CODE = 100;
+	private static final String IMAGE_DIRECTORY_NAME = "CarpImages";
+
+
+	private Uri fileUri; // file url to store image/video
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -59,11 +72,7 @@ public class ReportActivity extends Activity implements LocationListener{
 
 			@Override
 			public void onClick(View arg0) {
-				Intent intent = new Intent(getApplicationContext(), TakePhotoActivity.class);
-				intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-				intent.setFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
-				startActivity(intent);
-
+				captureImage();
 			}
 		});
 
@@ -93,6 +102,44 @@ public class ReportActivity extends Activity implements LocationListener{
 					Toast.LENGTH_SHORT).show();
 			onLocationChanged(location);
 		} 
+	}
+	private void captureImage() {
+		Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+
+		fileUri = getOutputMediaFile();
+
+		intent.putExtra(MediaStore.EXTRA_OUTPUT, fileUri);
+
+		// start the image capture Intent
+		startActivityForResult(intent, CAMERA_CAPTURE_IMAGE_REQUEST_CODE);
+	}
+	private static Uri getOutputMediaFile() {
+
+		// External sdcard location
+		File mediaStorageDir = new File(
+				Environment
+				.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES),
+				IMAGE_DIRECTORY_NAME);
+
+		// Create the storage directory if it does not exist
+		if (!mediaStorageDir.exists()) {
+			if (!mediaStorageDir.mkdirs()) {
+				Log.d(IMAGE_DIRECTORY_NAME, "Oops! Failed create "
+						+ IMAGE_DIRECTORY_NAME + " directory");
+				return null;
+			}
+		}
+
+		// Create a media file name
+		String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss",
+				Locale.getDefault()).format(new Date());
+		File mediaFile;
+
+		mediaFile = new File(mediaStorageDir.getPath() + File.separator
+				+ "IMG_" + timeStamp + ".jpg");
+
+
+		return  Uri.fromFile(mediaFile);
 	}
 	@Override
 	protected void onResume() {
@@ -262,5 +309,30 @@ public class ReportActivity extends Activity implements LocationListener{
 		}
 
 	}
+
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		// if the result is capturing Image
+		if (requestCode == CAMERA_CAPTURE_IMAGE_REQUEST_CODE) {
+			if (resultCode == RESULT_OK) {
+				Intent intent = new Intent(getApplicationContext(), TakePhotoActivity.class);
+				intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+				intent.setFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
+				intent.putExtra("imageuri", fileUri.toString());
+				startActivity(intent);
+			} else if (resultCode == RESULT_CANCELED) {
+				// user cancelled Image capture
+				Toast.makeText(getApplicationContext(),
+						"User cancelled image capture", Toast.LENGTH_SHORT)
+						.show();
+			} else {
+				// failed to capture image
+				Toast.makeText(getApplicationContext(),
+						"Sorry! Failed to capture image", Toast.LENGTH_SHORT)
+						.show();
+			}
+		} 
+	}
+
 
 }

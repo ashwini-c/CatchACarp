@@ -1,61 +1,77 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="horizontal"
+    android:background="@color/myBackground"
     android:baselineAligned="false"
+    android:selectAllOnFocus="true"
     tools:context=".TakePhotoActivity" >
 
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="fill_parent"
-        android:layout_weight="1"
-        android:gravity="center"
-        android:orientation="vertical" >
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:src="@drawable/header" />
 
-        <!-- Capture picture button -->
-        <Button
-            android:id="@+id/btnCapturePicture"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Take a Picture"
-            android:layout_marginBottom="10dp"/>
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/imageView1"
+        android:layout_marginTop="15dp"
+        android:background="@color/myButton"
+        android:paddingBottom="15dp"
+        android:paddingLeft="10dp"
+        android:paddingTop="15dp"
+        android:text="Take a photo"
+        android:textColor="@color/myText"
+        android:textStyle="bold" />
 
-        <!-- Record video button -->
-        <Button
-            android:id="@+id/btnRecordVideo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Record a Video" />
-    </LinearLayout>
+    <ImageView
+        android:id="@+id/imgPreview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textView1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="100dp"
+        android:layout_marginTop="15dp" />
 
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="fill_parent"
-        android:layout_weight="1"
-        android:orientation="vertical"
-        android:padding="10dp">
+    <Button
+        android:id="@+id/btnCapturePicture"
+        style="@style/ButtonText"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/textView12"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:text="Take Again" />
 
-        <TextView
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="Preview" 
-            android:padding="10dp"
-            android:textSize="15dp"/>
+    <Button
+        android:id="@+id/btnNext"
+        style="@style/ButtonText"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/textView12"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="10dp"
+        android:text="Add Info" />
 
-        <!-- To display picture taken -->
-        <ImageView
-            android:id="@+id/imgPreview"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:visibility="gone" />
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:background="@color/myButton"
+        android:paddingLeft="10dp"
+        android:text="@string/uow"
+        android:textColor="@color/myText"
+        android:textStyle="bold" />
 
-        <!-- To preview video recorded -->
-        <VideoView
-            android:id="@+id/videoPreview"
-            android:layout_width="wrap_content"
-            android:layout_height="400dp"
-            android:visibility="gone" />
-    </LinearLayout>
-
-</LinearLayout>
+</RelativeLayout>

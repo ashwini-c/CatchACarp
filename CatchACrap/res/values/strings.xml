@@ -11,5 +11,7 @@
     <string name="title_activity_info">InfoActivity</string>
     <string name="title_activity_user">UserActivity</string>
     <string name="title_activity_report">ReportActivity</string>
+    <string name="uow">University of Waikato FCMS 2014</string>
+    <string name="position">Long press pointer to reposition</string>
 
 </resources>

@@ -18,13 +18,19 @@
     </style>
 
     <style name="ButtonText" parent="@android:style/TextAppearance.Large">
-        <item name="android:textColor">#B45F04</item>
+        <item name="android:textColor">#FFFCF6</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textStyle">bold</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:singleLine">false</item>
+        <item name="android:background">@drawable/orange_button</item>
+        <item name="android:padding">15dp</item>
     </style>
 
-    <color name="myBackground">#FF4000</color>
-    <color name="myText">#B45F04</color>
+    <color name="myBackground">#FFFCF6</color>
+    <color name="myText">#FFFCF6</color>
+    <color name="myButton">#F67655</color>
+    <color name="white">#ffffffff</color>
 
 </resources>
