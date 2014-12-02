@@ -12,6 +12,33 @@
     <string name="title_activity_user">UserActivity</string>
     <string name="title_activity_report">ReportActivity</string>
     <string name="uow">University of Waikato FCMS 2014</string>
-    <string name="position">Long press pointer to reposition</string>
+    <string name="position">Long press on pointer to reposition</string>
+    <string name="title_activity_about_us">AboutUsActivity</string>
+    <string name="info">Koi carp (
+Cyprinus carpio
+) were selectively bred from wild
+stock in Asia and Europe and were introduced to New
+Zealand as ornamental pond fish in the 1960s. In the
+lower Waikato and Auckland region, koi carp inhabit lakes,
+wetlands, streams, drains and rivers. Small populations
+have been found in other locations around the North
+Island, but so far they have not established in the South
+Island.\n\n
+In New Zealand, they can grow to 70 cm long and weigh
+up to 14 kg. Males live to about 8 years and females to
+around 12 years. Koi carp spawn in shallow river and lake
+margins. A female koi carp is capable of multiple spawnings
+per year producing on average 100,000 eggs per kilogram
+of body weight.\n\n
+Juvenile koi carp are zooplanktivores, thus inhabit water
+with poor trophic status. The adults are omnivores that eat
+invertebrates, plants, fish eggs and small fish. They suck
+up sediment with their extensible mouths, extract what
+they eat and expel the remains. This leads to increased
+suspended sediment in the water column reducing
+water clarity, submerged aquatic plants, and habitat for
+zooplankton and small fish.\n</string>
+    <string name="title_activity_progress">ProgressActivity</string>
+    <string name="title_activity_progress_waikato">ProgressWaikatoActivity</string>
 
 </resources>

@@ -17,6 +17,7 @@ import android.os.Environment;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -34,7 +35,7 @@ public class TakePhotoActivity extends Activity {
 	private Uri fileUri; // file url to store image/video
 
 	private ImageView imgPreview;
-	private Button btnCapturePicture;
+	private Button btnCapturePicture,btnNxt;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +44,18 @@ public class TakePhotoActivity extends Activity {
 
 		imgPreview = (ImageView) findViewById(R.id.imgPreview);
 		btnCapturePicture = (Button) findViewById(R.id.btnCapturePicture);
+		btnNxt = (Button) findViewById(R.id.btnNext);
+		btnNxt.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View arg0) {
+				Intent intent = new Intent(getApplicationContext(), InfoActivity.class);
+				intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+				intent.setFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
+				startActivity(intent);
+
+			}
+		});
 
 		/*
 		 * Capture image button click event

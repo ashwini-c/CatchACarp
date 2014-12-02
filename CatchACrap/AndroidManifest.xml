@@ -60,6 +60,19 @@
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
+
+        <activity
+            android:name="nz.ac.waikato.fcms.catchacarp.AboutActivity"
+            android:label="@string/title_activity_about_us" >
+        </activity>
+        <activity
+            android:name="nz.ac.waikato.fcms.catchacarp.ProgressPersonalActivity"
+            android:label="@string/title_activity_progress" >
+        </activity>
+        <activity
+            android:name="nz.ac.waikato.fcms.catchacarp.ProgressWaikatoActivity"
+            android:label="@string/title_activity_progress_waikato" >
+        </activity>
     </application>
 
 </manifest>

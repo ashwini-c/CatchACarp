@@ -23,10 +23,10 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 		report = (Button) findViewById(R.id.button1);
 		btn = (Button) findViewById(R.id.button2);
-		user = (Button) findViewById(R.id.button3);
-		info = (Button) findViewById(R.id.button4);
+		user = (Button) findViewById(R.id.button4);
+		info = (Button) findViewById(R.id.button3);
 		report.setOnClickListener(new OnClickListener() {
-			
+
 			@Override
 			public void onClick(View arg0) {
 				Intent intent = new Intent(getApplicationContext(), ReportActivity.class);
@@ -34,7 +34,42 @@ public class MainActivity extends Activity {
 				intent.setFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
 				startActivity(intent);
 
-				
+
+			}
+		});
+
+		info.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent(getApplicationContext(), AboutActivity.class);
+				intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+				intent.setFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
+				startActivity(intent);
+
+			}
+		});
+
+		btn.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent(getApplicationContext(), ProgressWaikatoActivity.class);
+				intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+				intent.setFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
+				startActivity(intent);
+
+			}
+		});
+		user.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent(getApplicationContext(), ProgressPersonalActivity.class);
+				intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+				intent.setFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
+				startActivity(intent);
+
 			}
 		});
 	}

@@ -24,13 +24,14 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/imageView1"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="30dp"
             android:background="@drawable/orange_button"
             android:ems="10"
             android:hint="@string/UserName"
             android:inputType="textPersonName"
             android:padding="10dp"
             android:textColor="@color/myText"
+            android:textColorHint="@color/myText"
             android:textCursorDrawable="@null" >
         </EditText>
 
@@ -47,6 +48,7 @@
             android:inputType="textEmailAddress"
             android:padding="10dp"
             android:textColor="@color/myText"
+            android:textColorHint="@color/myText"
             android:textCursorDrawable="@null" >
         </EditText>
 
