@@ -1,4 +1,4 @@
-package nz.ac.waikato.fcms.catchacarp;
+package nz.ac.waikato.fcms.catchacarp.activity;
 
 import nz.ac.waikato.fcms.catchacarp.R;
 import android.app.Activity;
@@ -55,6 +55,7 @@ public class ReportActivity extends Activity implements LocationListener{
 	Marker curr ;
 	private ProgressBar spinner;
 	Button btn;
+	double lat,lng;
 	// Activity request codes
 	private static final int CAMERA_CAPTURE_IMAGE_REQUEST_CODE = 100;
 	private static final String IMAGE_DIRECTORY_NAME = "CarpImages";
@@ -154,8 +155,8 @@ public class ReportActivity extends Activity implements LocationListener{
 
 	@Override
 	public void onLocationChanged(Location location) {
-		double lat =  location.getLatitude();
-		double lng = location.getLongitude();
+		lat =  location.getLatitude();
+		lng = location.getLongitude();
 		Log.d("ashwini", "Location " + lat+","+lng);
 		LatLng coordinate = new LatLng(lat, lng);
 		/*Toast.makeText(this, "Location " + coordinate.latitude+","+coordinate.longitude,
@@ -316,6 +317,8 @@ public class ReportActivity extends Activity implements LocationListener{
 		if (requestCode == CAMERA_CAPTURE_IMAGE_REQUEST_CODE) {
 			if (resultCode == RESULT_OK) {
 				Intent intent = new Intent(getApplicationContext(), TakePhotoActivity.class);
+				intent.putExtra("lat", lat);
+				intent.putExtra("lng", lng);
 				intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 				intent.setFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
 				intent.putExtra("imageuri", fileUri.toString());

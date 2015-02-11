@@ -7,6 +7,7 @@
     <string name="UserName">Name</string>
     <string name="email">Email</string>
     <string name="register">Register</string>
+    <string name="login">Login</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="title_activity_info">InfoActivity</string>
     <string name="title_activity_user">UserActivity</string>

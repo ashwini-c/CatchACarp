@@ -1,10 +1,12 @@
-package nz.ac.waikato.fcms.catchacarp;
+package nz.ac.waikato.fcms.catchacarp.activity;
 
 import java.io.File;
 import java.net.URI;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
+
+import nz.ac.waikato.fcms.catchacarp.R;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -36,12 +38,14 @@ public class TakePhotoActivity extends Activity {
 
 	private ImageView imgPreview;
 	private Button btnCapturePicture,btnNxt;
+	double lat,lng;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_photo);
-
+		lat = getIntent().getDoubleExtra("lat", -3333);
+		lng = getIntent().getDoubleExtra("lng", -3333);
 		imgPreview = (ImageView) findViewById(R.id.imgPreview);
 		btnCapturePicture = (Button) findViewById(R.id.btnCapturePicture);
 		btnNxt = (Button) findViewById(R.id.btnNext);
@@ -50,6 +54,9 @@ public class TakePhotoActivity extends Activity {
 			@Override
 			public void onClick(View arg0) {
 				Intent intent = new Intent(getApplicationContext(), InfoActivity.class);
+				intent.putExtra("lat", lat);
+				intent.putExtra("lng", lng);
+				intent.putExtra("filePath", fileUri.getPath());
 				intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 				intent.setFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
 				startActivity(intent);

@@ -1,15 +1,16 @@
-package nz.ac.waikato.fcms.catchacarp;
+package nz.ac.waikato.fcms.catchacarp.activity;
 
+import nz.ac.waikato.fcms.catchacarp.R;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class AboutActivity extends Activity {
+public class ProgressWaikatoActivity extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_about_us);
+		setContentView(R.layout.activity_progress_waikato);
 	}
 }

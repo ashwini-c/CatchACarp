@@ -1,4 +1,4 @@
-package nz.ac.waikato.fcms.catchacarp;
+package nz.ac.waikato.fcms.catchacarp.activity;
 
 
 import nz.ac.waikato.fcms.catchacarp.R;
@@ -17,6 +17,7 @@ import android.os.Build;
 public class MainActivity extends Activity {
 
 	Button report,btn,user,info;
+	String username,email;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -25,6 +26,8 @@ public class MainActivity extends Activity {
 		btn = (Button) findViewById(R.id.button2);
 		user = (Button) findViewById(R.id.button4);
 		info = (Button) findViewById(R.id.button3);
+		username = getIntent().getStringExtra("username");
+		email = getIntent().getStringExtra("email");
 		report.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -42,7 +45,7 @@ public class MainActivity extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				Intent intent = new Intent(getApplicationContext(), AboutActivity.class);
+				Intent intent = new Intent(getApplicationContext(), AboutUsActivity.class);
 				intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 				intent.setFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
 				startActivity(intent);
